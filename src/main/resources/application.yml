@@ -1,0 +1,14 @@
+tcp:
+  server:
+    port: ${TCP_SERVER_PORT:1234}
+    timeout: ${TCP_SERVER_TIMEOUT:10000}
+
+sum-of-number-calculation:
+  parallelism: ${SUM_OF_NUMBER_CALCULATION_PARALLELISM:4}
+  validator:
+    available-sender-systems: ${SUM_OF_NUMBER_CALCULATION_VALIDATOR_AVAILABLE_SENDER_SYSTEMS:SYSTEM1}
+    array-length: ${SUM_OF_NUMBER_CALCULATION_VALIDATOR_ARRAY_LENGTH:10}
+
+logging:
+  level:
+    org.shakh.calculation: DEBUG

@@ -1,0 +1,53 @@
+package org.shakh.calculation.sum.process;
+
+import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.Spliterator;
+import java.util.concurrent.RecursiveTask;
+import java.util.function.DoubleConsumer;
+
+@Slf4j
+public class SumOfNumberTask extends RecursiveTask<Double> {
+
+    private static final int THRESHOLD = 2;
+
+    private final Spliterator.OfDouble spliterator;
+
+    public SumOfNumberTask(Spliterator.OfDouble spliterator) {
+        this.spliterator = spliterator;
+    }
+
+    @Override
+    protected Double compute() {
+        if (spliterator.estimateSize() <= THRESHOLD) {
+            return sum(spliterator);
+        }
+
+        Spliterator.OfDouble otherHalf = spliterator.trySplit();
+        if (otherHalf == null) {
+            return sum(spliterator);
+        }
+
+        var leftTask = new SumOfNumberTask(otherHalf);
+        var rightTask = new SumOfNumberTask(spliterator);
+
+        leftTask.fork();
+        Double rightResult = rightTask.compute();
+        Double leftResult = leftTask.join();
+
+        return leftResult + rightResult;
+    }
+
+    private Double sum(Spliterator.OfDouble spliterator) {
+        Double[] sum = {0.0};
+        spliterator.forEachRemaining((DoubleConsumer) v -> {
+            log.debug("Add element: {}", v);
+            sum[0] += v;
+        });
+
+        log.debug("Sum: {}", sum[0]);
+        return sum[0];
+    }
+}
