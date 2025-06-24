@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public record SumOfNumberCalculationMessageIn(
         String system,
-        String type,
+        MessageType type,
         long id,
         double[] values
 ) {

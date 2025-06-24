@@ -1,6 +1,5 @@
 package org.shakh.calculation.sum.config;
 
-import org.shakh.calculation.sum.endpoint.model.out.ReasonForRefusal;
 import org.shakh.calculation.sum.endpoint.model.out.ReasonForRefusalCode;
 import org.shakh.calculation.sum.process.validation.error.ValidationException;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -12,7 +11,6 @@ import org.springframework.integration.config.EnableIntegration;
 import org.springframework.integration.ip.tcp.TcpInboundGateway;
 import org.springframework.integration.ip.tcp.connection.AbstractServerConnectionFactory;
 import org.springframework.integration.ip.tcp.connection.TcpNetServerConnectionFactory;
-import org.springframework.integration.ip.tcp.serializer.ByteArrayRawSerializer;
 import org.springframework.messaging.MessageChannel;
 
 import java.util.HashMap;
@@ -30,11 +28,6 @@ public class TspServerConfiguration {
         var factory = new TcpNetServerConnectionFactory(properties.port());
         factory.setSoTimeout(properties.timeout());
         return factory;
-    }
-
-    @Bean
-    public ByteArrayRawSerializer byteArrayRawSerializer() {
-        return new ByteArrayRawSerializer();
     }
 
     @Bean

@@ -18,4 +18,5 @@ public class ParametersSumCalculationValidateProcessor {
     public void process(SumOfNumberCalculationModel sumOfNumberCalculationModel) {
         validators.forEach(validator -> validator.validate(sumOfNumberCalculationModel));
     }
+
 }

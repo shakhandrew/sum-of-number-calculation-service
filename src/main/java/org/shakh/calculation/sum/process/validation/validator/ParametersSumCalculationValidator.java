@@ -5,4 +5,5 @@ import org.shakh.calculation.sum.process.model.SumOfNumberCalculationModel;
 public interface ParametersSumCalculationValidator {
 
     void validate(SumOfNumberCalculationModel sumOfNumberCalculationModel);
+
 }

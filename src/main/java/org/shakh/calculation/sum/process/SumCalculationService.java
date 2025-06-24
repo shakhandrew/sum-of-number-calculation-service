@@ -2,7 +2,6 @@ package org.shakh.calculation.sum.process;
 
 import lombok.RequiredArgsConstructor;
 import org.shakh.calculation.sum.process.model.SumOfNumberCalculationModel;
-import org.shakh.calculation.sum.process.utils.DoubleUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Spliterator;
@@ -19,9 +18,7 @@ public class SumCalculationService {
         Spliterator.OfDouble spliterator = Spliterators.spliterator(sumOfNumberCalculationModel.values(), 0);
 
         var task = new SumOfNumberTask(spliterator);
-        var result = calculationForkJoinPool.invoke(task);
-
-        return result;
+        return calculationForkJoinPool.invoke(task);
     }
 
 }

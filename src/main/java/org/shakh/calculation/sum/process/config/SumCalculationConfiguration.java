@@ -1,6 +1,5 @@
 package org.shakh.calculation.sum.process.config;
 
-import org.shakh.calculation.sum.config.TspServerProperties;
 import org.shakh.calculation.sum.process.validation.config.ValidationProperties;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

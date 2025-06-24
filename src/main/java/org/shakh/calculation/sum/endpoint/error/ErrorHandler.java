@@ -1,6 +1,5 @@
 package org.shakh.calculation.sum.endpoint.error;
 
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.shakh.calculation.sum.endpoint.SumCalculationModelMapper;

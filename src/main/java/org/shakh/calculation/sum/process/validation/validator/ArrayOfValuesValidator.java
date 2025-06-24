@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.shakh.calculation.sum.process.model.SumOfNumberCalculationModel;
 import org.shakh.calculation.sum.process.validation.config.ValidationProperties;
 import org.shakh.calculation.sum.process.validation.error.ValidationException;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component

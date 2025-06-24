@@ -7,6 +7,8 @@ import org.shakh.calculation.sum.process.utils.DoubleUtils;
 import org.shakh.calculation.sum.process.validation.ParametersSumCalculationValidateProcessor;
 import org.springframework.stereotype.Service;
 
+import java.util.Random;
+
 @Service
 @RequiredArgsConstructor
 public class SumCalculationProcessor {
@@ -26,7 +28,7 @@ public class SumCalculationProcessor {
             Double result
     ) {
         return new SumOfNumberCalculationResult(
-                sumOfNumberCalculationModel.id(),
+                new Random().nextLong(),
                 sumOfNumberCalculationModel.id(),
                 DoubleUtils.scale(result)
         );

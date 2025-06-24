@@ -1,8 +1,6 @@
 package org.shakh.calculation.sum.process;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Spliterator;
 import java.util.concurrent.RecursiveTask;
@@ -34,7 +32,9 @@ public class SumOfNumberTask extends RecursiveTask<Double> {
         var rightTask = new SumOfNumberTask(spliterator);
 
         leftTask.fork();
-        Double rightResult = rightTask.compute();
+        rightTask.fork();
+
+        Double rightResult = rightTask.join();
         Double leftResult = leftTask.join();
 
         return leftResult + rightResult;
