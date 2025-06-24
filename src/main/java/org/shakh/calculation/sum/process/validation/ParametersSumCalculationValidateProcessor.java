@@ -15,6 +15,9 @@ public class ParametersSumCalculationValidateProcessor {
 
     private final List<ParametersSumCalculationValidator> validators;
 
+    /**
+     * Валидация параметров модели.
+     */
     public void process(SumOfNumberCalculationModel sumOfNumberCalculationModel) {
         validators.forEach(validator -> validator.validate(sumOfNumberCalculationModel));
     }

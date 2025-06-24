@@ -22,6 +22,9 @@ public class ErrorHandler {
     private final SumCalculationModelMapper mapper;
     private final Map<Class<? extends Exception>, ReasonForRefusalCode> exceptionReasonForRefusalMap;
 
+    /**
+     * Обработчик ошибок.
+     */
     @ServiceActivator(inputChannel = "errorChannel")
     public byte[] transform(ErrorMessage errorMessage) {
         SumOfNumberCalculationMessageIn messageIn = mapper.deserialize(

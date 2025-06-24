@@ -14,6 +14,12 @@ public class SumCalculationService {
 
     private final ForkJoinPool calculationForkJoinPool;
 
+    /**
+     * Расчет суммы чисел. Используется Spliterators для дальнейшего разделения массива на части.
+     *
+     * @param sumOfNumberCalculationModel Модель со значениями для расчета.
+     * @return Результат расчета.
+     */
     public Double calculateSum(SumOfNumberCalculationModel sumOfNumberCalculationModel) {
         Spliterator.OfDouble spliterator = Spliterators.spliterator(sumOfNumberCalculationModel.values(), 0);
 

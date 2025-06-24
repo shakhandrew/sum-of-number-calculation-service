@@ -14,6 +14,9 @@ public class ArrayOfValuesValidator implements ParametersSumCalculationValidator
 
     private final ValidationProperties validationProperties;
 
+    /**
+     * Валидация длины массива со значениями для расчета.
+     */
     @Override
     public void validate(SumOfNumberCalculationModel sumOfNumberCalculationModel) {
         if (sumOfNumberCalculationModel.values().length != validationProperties.arrayLength()) {

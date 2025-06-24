@@ -17,6 +17,13 @@ public class SumOfNumberTask extends RecursiveTask<Double> {
         this.spliterator = spliterator;
     }
 
+    /**
+     * Задача для расчета суммы чисел. Используется Spliterators для дальнейшего разделения массива на части.
+     * Разбиение задачи на несколько и использование join для ее выполнения и получения результата.
+     * Шаг до которого разбиваем массив 2.
+     *
+     * @return Результат расчета.
+     */
     @Override
     protected Double compute() {
         if (spliterator.estimateSize() <= THRESHOLD) {

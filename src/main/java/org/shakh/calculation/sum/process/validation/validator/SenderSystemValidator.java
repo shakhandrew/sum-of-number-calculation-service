@@ -12,6 +12,9 @@ public class SenderSystemValidator implements ParametersSumCalculationValidator 
 
     private final ValidationProperties validationProperties;
 
+    /**
+     * Валидация входит ли система в списов доверенных.
+     */
     @Override
     public void validate(SumOfNumberCalculationModel sumOfNumberCalculationModel) {
         if (!validationProperties.availableSenderSystems().contains(sumOfNumberCalculationModel.system())) {
