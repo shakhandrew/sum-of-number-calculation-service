@@ -5,7 +5,7 @@ import org.shakh.calculation.sum.endpoint.model.MessageType;
 public record SumOfNumberCalculationMessageOut(
         MessageType type,
         long id,
-        long requestId,
+        long request,
         double result,
         ReasonForRefusal reason
 ) {
@@ -19,7 +19,7 @@ public record SumOfNumberCalculationMessageOut(
         return "SumOfNumberCalculationRs{" +
                 "type=" + type +
                 ", id=" + id +
-                ", requestId=" + requestId +
+                ", request=" + request +
                 ", result=" + result +
                 ", reason=" + reason +
                 '}';
